@@ -49,29 +49,9 @@ public class SemiCaverns extends ActiveScript implements PaintListener, MessageL
     private final Tree NodeTree = new Tree(new Node[]{new Banker(),new Outside(), new Summoning(), new EvadeCombat(), new Mine(), });
     private final Node Antiban = new semicaverns.nodes.feature.Antiban();
     private final Job Login = new WorldLogin();
-/*
-    private WidgetChild[] getChildren(final Widget w){
-        final List<WidgetChild> childList = new ArrayList<>();
-        for(final WidgetChild wc : w.getChildren()){
-            if(wc != null && wc.validate()){
-                if(wc.getChildren().length > 1)
-                    childList.addAll(Arrays.asList(wc.getChildren()));
-                else childList.add(wc);
-            }
-        }
-        return childList.toArray(new WidgetChild[childList.size()]);
-    }*/
 
     @Override
     public void onStart() {
-/*        for(final Widget w : Widgets.getLoaded()) {
-            if(w != null && w.validate()) {
-                for(final WidgetChild wc : getChildren(w)){
-                    if(wc != null && wc.validate() && wc.getBoundingRectangle().contains(new Point(575, 355)))
-                        System.out.println(wc.getWidget().getIndex() + ":" + wc.getIndex());
-                }
-            }
-        }*/
         Context.setLoginWorld(84);
         if(Game.getClientState() >= WorldLogin.STATE_LOBBY) {
             if(Skills.getRealLevel(Skills.MINING) >= 77) {
@@ -115,16 +95,6 @@ public class SemiCaverns extends ActiveScript implements PaintListener, MessageL
 
     @Override
     public int loop() {
-        System.out.println(Skills.getRealLevel(Skills.MINING));
-        SceneObject obj = SceneEntities.getNearest(40269);
-        if(obj != null){
-            System.out.println(1);
-            final Area a = obj.getArea();
-            if(a != null){
-                System.out.println(2);
-            }
-        }
-        if(true)return 200;
         final Widget warning = Widgets.get(892);
         if(warning.validate()) {
             final WidgetChild proceed = warning.getChild(15);
